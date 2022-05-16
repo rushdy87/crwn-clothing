@@ -1,7 +1,18 @@
-import Categories from "./components/directory/directory.component";
+import { Routes, Route } from "react-router-dom";
 
-import { categories } from "./categories";
+import Navigation from "./routes/navigation/navigation.compnent";
+import Home from "./routes/home/home.component";
+import SignIn from "./routes/sign-in/sign-in.component";
 
-const App = () => <Categories categories={categories} />;
+const App = () => (
+  <Routes>
+    <Route path="/" element={<Navigation />}>
+      <Route index element={<Home />} />
+      <Route path="sign-in" element={<SignIn />} />
+    </Route>
+  </Routes>
+);
 
 export default App;
+
+// crwn-clothing-db-2a774
