@@ -1,5 +1,10 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import {
+  getAuth,
+  signInWithPopup,
+  signInWithRedirect,
+  GoogleAuthProvider,
+} from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 // Initialize Firebase in your app and create a Firebase App object
@@ -26,6 +31,9 @@ provider.setCustomParameters({
 export const auth = getAuth();
 
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, provider);
 
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(firebaseApp);
