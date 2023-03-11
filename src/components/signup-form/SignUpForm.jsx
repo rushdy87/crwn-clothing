@@ -5,6 +5,8 @@ import {
   createUserDocumentFromAuth,
 } from '../../utils/firebase';
 
+import { FormInput } from '../';
+
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState({
     displayName: '',
@@ -50,8 +52,8 @@ const SignUpForm = () => {
     <div>
       <h1>Sign up with your Email and password</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="">Display Name</label>
-        <input
+        <FormInput
+          label="Display Name"
           type="text"
           required
           onChange={handleChange}
@@ -59,8 +61,8 @@ const SignUpForm = () => {
           value={displayName}
         />
 
-        <label htmlFor="">Email</label>
-        <input
+        <FormInput
+          label="Email"
           type="email"
           required
           onChange={handleChange}
@@ -68,8 +70,8 @@ const SignUpForm = () => {
           value={email}
         />
 
-        <label htmlFor="">Password</label>
-        <input
+        <FormInput
+          label="Password"
           type="password"
           required
           onChange={handleChange}
@@ -77,8 +79,8 @@ const SignUpForm = () => {
           value={password}
         />
 
-        <label htmlFor="">Confirm Password</label>
-        <input
+        <FormInput
+          label="Confirm Password"
           type="password"
           required
           onChange={handleChange}
@@ -86,7 +88,7 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
 
-        {!!error && <span style={{ color: 'red' }}>{error}</span>}
+        {!!error && <div className="error">{error}</div>}
         <button type="submit">Sign Up</button>
       </form>
     </div>
