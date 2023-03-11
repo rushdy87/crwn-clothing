@@ -1,4 +1,4 @@
-import CategoryItem from '../category-item/CategoryItem';
+import { CategoryItem } from '../';
 
 import './Directory.scss';
 
