@@ -5,3 +5,5 @@ export { default as SignInForm } from './signin-form/SignInForm';
 export { default as FormInput } from './form-input/FormInput';
 export { default as Button } from './button/Button';
 export { default as ProductCard } from './product-card/ProductCard';
+export { default as CartIcon } from './cart-icon/CartIcon';
+export { default as CartDropdown } from './cart-dropdown/CartDropdown';
