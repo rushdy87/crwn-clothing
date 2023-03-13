@@ -1,8 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
-import { Navigation, Home, Authentication } from './routes';
-
-const Shop = () => <h1>Shop</h1>;
+import { Navigation, Home, Authentication, Shop } from './routes';
 
 const App = () => (
   <Routes>
