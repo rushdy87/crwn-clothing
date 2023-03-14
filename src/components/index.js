@@ -7,3 +7,4 @@ export { default as Button } from './button/Button';
 export { default as ProductCard } from './product-card/ProductCard';
 export { default as CartIcon } from './cart-icon/CartIcon';
 export { default as CartDropdown } from './cart-dropdown/CartDropdown';
+export { default as CartItem } from './cart-item/CartItem';
