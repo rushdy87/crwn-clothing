@@ -9,7 +9,16 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  writeBatch,
+  query,
+  getDocs,
+} from 'firebase/firestore';
 
 // Initialize Firebase in your app and create a Firebase App object
 // app's Firebase configuration
@@ -41,6 +50,44 @@ export const signInWithGoogleRedirect = () =>
 
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(firebaseApp);
+
+// the function (addCollectionAndDocuments) below used one time (first time) to save the intial data in the Firestore Database
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = collection(db, collectionKey);
+
+  const batch = writeBatch(db);
+
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+
+    batch.set(docRef, object);
+  });
+
+  await batch.commit();
+  console.log('done');
+};
+
+export const getCategoriesAndDocuments = async () => {
+  const collectionRef = collection(db, 'categories');
+
+  const q = query(collectionRef);
+
+  const querySnapshot = await getDocs(q);
+
+  const categoryMap = querySnapshot.docs.reduce(
+    (accumulator, currentDocSnapshot) => {
+      const { title, items } = currentDocSnapshot.data();
+      accumulator[title.toLowerCase()] = items;
+      return accumulator;
+    },
+    {}
+  );
+
+  return categoryMap;
+};
 
 // Creat a document
 export const createUserDocumentFromAuth = async (
