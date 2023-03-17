@@ -13,3 +13,7 @@ export const store = createStore(rootReducer, undefined, composedEnhancers);
 // USER
 export { setCurrentUser } from './user/user-action';
 export { selectCurrentUser } from './user/user-selector';
+
+// CTEGORIES
+export { setCategoriesMap } from './categories/category-action';
+export { selectCategoriesMap } from './categories/category-selector';
