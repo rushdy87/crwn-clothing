@@ -77,16 +77,7 @@ export const getCategoriesAndDocuments = async () => {
 
   const querySnapshot = await getDocs(q);
 
-  const categoryMap = querySnapshot.docs.reduce(
-    (accumulator, currentDocSnapshot) => {
-      const { title, items } = currentDocSnapshot.data();
-      accumulator[title.toLowerCase()] = items;
-      return accumulator;
-    },
-    {}
-  );
-
-  return categoryMap;
+  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 };
 
 // Creat a document
