@@ -8,14 +8,11 @@ import { ProductCard } from '../../components';
 import { CategoryContainer, Title } from './Category.styles';
 
 const Category = () => {
-  console.log('Render/Rerendering Category Component');
-
   const { category } = useParams();
   const categoriesMap = useSelector(selectCategoriesMap);
   const [products, setproducts] = useState(categoriesMap[category]);
 
   useEffect(() => {
-    console.log('Effect fired calling setProducts');
     setproducts(categoriesMap[category]);
   }, [categoriesMap, category]);
 
