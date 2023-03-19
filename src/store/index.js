@@ -31,3 +31,17 @@ export { selectCurrentUser } from './user/user-selector';
 // CTEGORIES
 export { setCategories } from './categories/category-action';
 export { selectCategoriesMap } from './categories/category-selector';
+
+// CART
+export {
+  setIsCartOpen,
+  addItemToCart,
+  removeItemFromCart,
+  clearItemFromCart,
+} from './cart/cart-action';
+export {
+  selectCartItems,
+  selectIsCartOpen,
+  selectCartCount,
+  selectCartTotal,
+} from './cart/cart-selector';
