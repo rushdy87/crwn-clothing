@@ -48,7 +48,7 @@ export { setCurrentUser } from './user/user-action';
 export { selectCurrentUser } from './user/user-selector';
 
 // CTEGORIES
-export { fetchCategoriesAsync } from './categories/category-action';
+export { fetchCategoriesStart } from './categories/category-action';
 export {
   selectCategoriesMap,
   selectCategoriesIsLoading,

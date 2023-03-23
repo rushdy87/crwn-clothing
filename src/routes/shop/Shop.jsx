@@ -2,14 +2,14 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
-import { fetchCategoriesAsync } from '../../store';
+import { fetchCategoriesStart } from '../../store';
 
 import { CategoriesPreview, Category } from '..';
 
 const Shop = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchCategoriesAsync());
+    dispatch(fetchCategoriesStart());
   }, [dispatch]);
 
   return (
