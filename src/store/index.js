@@ -44,7 +44,7 @@ export const persistor = persistStore(store);
 
 // For Centralization
 // USER
-export { setCurrentUser } from './user/user-action';
+export { setCurrentUser, checkUserSession } from './user/user-action';
 export { selectCurrentUser } from './user/user-selector';
 
 // CTEGORIES
