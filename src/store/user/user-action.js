@@ -34,3 +34,12 @@ export const signUpSeccess = (user, additionalInformation) =>
 
 export const signUpFaild = (error) =>
   createAction(USER_ACTION_TYPES.SIGN_UP_FAILED, error);
+
+export const signOutStart = () =>
+  createAction(USER_ACTION_TYPES.SIGN_OUT_START);
+
+export const signOutSeccess = () =>
+  createAction(USER_ACTION_TYPES.SIGN_OUT_SUCCESS);
+
+export const signOutFaild = (error) =>
+  createAction(USER_ACTION_TYPES.SIGN_OUT_FAILED, error);
