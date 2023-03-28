@@ -31,7 +31,7 @@ export {
   addItemToCart,
   removeItemFromCart,
   clearItemFromCart,
-} from './cart/cart-action';
+} from './cart/cart-reducer';
 export {
   selectCartItems,
   selectIsCartOpen,

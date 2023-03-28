@@ -1,7 +1,6 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import {
-  selectCartItems,
   addItemToCart,
   removeItemFromCart,
   clearItemFromCart,
@@ -22,16 +21,11 @@ const CheckoutItem = ({ cartItem }) => {
 
   const dispatch = useDispatch();
 
-  const cartItems = useSelector(selectCartItems);
+  const clearItemHandler = () => dispatch(clearItemFromCart(cartItem));
 
-  const clearItemHandler = () =>
-    dispatch(clearItemFromCart(cartItems, cartItem));
+  const increaseItemHandler = () => dispatch(addItemToCart(cartItem));
 
-  const increaseItemHandler = () =>
-    dispatch(addItemToCart(cartItems, cartItem));
-
-  const decreaseItemHandler = () =>
-    dispatch(removeItemFromCart(cartItems, cartItem));
+  const decreaseItemHandler = () => dispatch(removeItemFromCart(cartItem));
 
   return (
     <CheckoutItemContainer>
