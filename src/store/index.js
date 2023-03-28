@@ -6,38 +6,15 @@ import logger from 'redux-logger';
 
 import { rootReducer } from './root-reducer';
 
-// const persistConfig = {
-//   key: 'root',
-//   storage,
-//   blacklist: ['user'],
-// };
-
-// const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 const middlewares = [process.env.NODE_ENV !== 'production' && logger].filter(
   Boolean
 );
-
-// const composedEnhancer =
-//   (process.env.NODE_ENV !== 'production' &&
-//     window &&
-//     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-//   compose;
-
-// const composedEnhancers = composedEnhancer(applyMiddleware(...middlewares));
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(middlewares),
 });
-// export const store = createStore(
-//   persistedReducer,
-//   undefined,
-//   composedEnhancers
-// );
-
-// export const persistor = persistStore(store);
 
 // For Centralization
 // USER
@@ -45,7 +22,7 @@ export { setCurrentUser } from './user/user-reducer';
 export { selectCurrentUser } from './user/user-selector';
 
 // CTEGORIES
-export { setCategories } from './categories/category-action';
+export { setCategories } from './categories/category-reducer';
 export { selectCategoriesMap } from './categories/category-selector';
 
 // CART
