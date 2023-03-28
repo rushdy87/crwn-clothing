@@ -18,7 +18,9 @@ const App = () => {
       if (user) {
         createUserDocumentFromAuth(user);
       }
-      dispatch(setCurrentUser(user));
+      const pickedUser =
+        user && (({ accessToken, email }) => ({ accessToken, email }))(user);
+      dispatch(setCurrentUser(pickedUser));
     });
 
     return unsubcribe;
